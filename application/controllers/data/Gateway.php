@@ -288,8 +288,8 @@ class Gateway extends CI_Controller
         }
 
         // 分析処理
-        $this->load->library('process_status2_lib');
-        $processing = $this->process_status2_lib->status($status_data);
+        $this->load->library('process_status_lib');
+        $processing = $this->process_status_lib->status($status_data);
         if ($processing === false) {
             $this->output
             ->set_content_type('application/json')
