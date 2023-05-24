@@ -7,7 +7,7 @@
     },
     "require": {
         "codeigniter/framework": "3.1.*",
-        "phpoffice/phpspreadsheet": "^1.2",
+        "phpoffice/phpspreadsheet": "^1.23",
         "tecnickcom/tcpdf": "^6.3"
     },
     "require-dev": {
