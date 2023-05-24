@@ -1,0 +1,27 @@
+// .wareki-year {
+//     font-size: 12px;
+// }
+
+// カレンダー　曜日　色
+.sun {
+    color: #f00;
+}
+.sat {
+    color: #00f;
+}
+.sun.prevMonthDay, .sun.nextMonthDay {
+    color: rgba(#f00, 0.3);
+}
+.sat.prevMonthDay, .sat.nextMonthDay {
+    color: rgba(#00f, 0.3);
+}
+// .flatpickr-day.selected {
+//     color: #fff !important;
+// }
+
+// カレンダー　年　月　表示を逆に
+.flatpickr-calendar .flatpickr-current-month {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse !important;
+}

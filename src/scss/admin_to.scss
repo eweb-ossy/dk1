@@ -1,0 +1,32 @@
+
+// admin to 
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+@import "import/_table_custom";
+@import "import/forms";
+
+.date-users-area {
+    display: flex;
+    justify-content: flex-start;
+    .filter-box {
+        margin-right: 20px;
+        p {
+            font-size: 9px;
+            margin: .5em 0;
+        }
+    }
+    .data-area {
+        display: flex;
+        .box {
+            margin-right: 20px;
+            p {
+            font-size: 9px;
+            margin: .5em 0;
+            }
+        }
+    }
+}

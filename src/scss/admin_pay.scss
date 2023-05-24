@@ -1,0 +1,55 @@
+
+// admin pay
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+@import "import/forms";
+@import "import/button";
+@import "import/payment_view";
+@import "../../node_modules/siiimple-toast/src/style.scss";
+@import "../../node_modules/tabulator-tables/src/scss/tabulator.scss";
+// @import "../../node_modules/tabulator-tables/src/scss/themes/tabulator_simple.scss";
+
+// tabulator 
+.tabulator {
+    font-size: 12px;
+}
+
+// 
+.main-title-area {
+    .btn-area {
+        .pay-file-input {
+            display: none;
+        }
+        .btn2 {
+            background-color: #fd5c5c;
+            &:hover {
+                background-color: #ff8888;
+            }
+        }
+    }
+}
+
+// 
+.select-item-area {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    background-color: #f2f2f2;
+    div {
+        display: flex;
+        align-items: center;
+    }
+    .select-tab {
+        margin-right: 10px;
+        .btn2 {
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+
+// admin lists
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+@import "import/_table_custom";
+@import "import/_modal_custom";
+@import "import/forms";
+
+.date-area {
+    position: relative;
+    .term-area {
+        position: absolute;
+        bottom: 5px;
+        left: 25px;
+        font-size: 11px;
+        color: #4b4b4b;
+    }
+    .user-select-area {
+        position: absolute;
+        font-size: 11px;
+        bottom: 2px;
+        left: 330px;
+        display: flex;
+        align-items: center;
+    }
+    .week-select-area {
+        position: absolute;
+        font-size: 11px;
+        bottom: 2px;
+        left: 600px;
+        display: flex;
+        align-items: center;
+    }
+    .end-day-select-area {
+        position: absolute;
+        font-size: 11px;
+        bottom: 2px;
+        left: 750px;
+        display: flex;
+        align-items: center;
+    }
+    select {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+}
+
+//
+.user-area {
+    padding: 5px;
+    margin-left: 50px;
+    .user-kana {
+        margin-bottom: 5px;
+        font-size: 10px;
+    }
+    .user-data {
+        font-size: 11px;
+        span {
+            margin-right: 10px;
+        }
+        .user-name {
+            font-size: 18px;
+        }
+    }
+}

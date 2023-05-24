@@ -1,0 +1,23 @@
+
+input {
+    font-size: 14px;
+    border: 1px solid #E5E5E5;
+    padding: 4px 6px;
+    color: #666;
+    border-radius: 4px;
+}
+select {
+    padding: 4px 6px;
+    border: 1px solid #E5E5E5;
+    background-color: #fff;
+    color: #666;
+    border-radius: 4px;
+}
+
+.error-message {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #df2a2a;
+    margin-top: 5px;
+}

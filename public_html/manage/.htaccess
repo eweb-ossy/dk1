@@ -1,0 +1,27 @@
+SetEnvIf Request_URI ".*" Ngx_Cache_NoCacheMode=off
+SetEnvIf Request_URI ".*" Ngx_Cache_StaticMode
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+## Basic Auth
+AuthUserfile /home/eweb/dk-keeper.com/htpasswd/.htpasswd
+AuthGroupfile /dev/null
+AuthName "Please enter your ID and password"
+AuthType Basic
+require valid-user
+
+## AccessControl IP/HOST
+#order deny,allow
+#deny from all
+#allow from 118.243.234.198
+#allow from 122.249.156.144
+
+SetEnvIf Request_URI ".*" WpCommentDeny

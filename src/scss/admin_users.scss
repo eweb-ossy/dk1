@@ -1,0 +1,41 @@
+
+// admin users
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+// @import "import/_table_custom";
+@import "import/forms";
+@import "../../node_modules/tabulator-tables/src/scss/themes/tabulator_simple.scss";
+@import "import/tabulator_over";
+@import "../../node_modules/siiimple-toast/src/style.scss";
+
+
+.date-users-area {
+    display: flex;
+    justify-content: flex-start;
+    .filter-box {
+        margin-right: 20px;
+        p {
+            font-size: 9px;
+            margin: .5em 0;
+        }
+    }
+    .data-area {
+    display: flex;
+        .box {
+            margin-right: 20px;
+            p {
+            font-size: 9px;
+            margin: .5em 0;
+            }
+        }
+    }
+    .btn-area {
+        .input-file {
+            display: none;
+        }
+    }
+}

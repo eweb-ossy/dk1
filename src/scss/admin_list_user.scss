@@ -1,0 +1,20 @@
+
+// admin list_user
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+@import "import/_table_custom";
+
+.date-area {
+  position: relative;
+  .term-area {
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    font-size: 11px;
+    color: #4b4b4b;
+  }
+}

@@ -1,0 +1,68 @@
+// @use "sass:math";
+
+select:focus {
+  outline: none;
+}// 共通scss
+
+$breakpoints: ('pc': 'screen and (min-width: 769px)',
+	'sp': 'screen and (max-width: 768px)',
+) !default;
+
+@mixin mq($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+// @function get_vw($size, $viewport:750) {
+// 	$rate: 100 / $viewport;
+// 	// $rate: math.div(100, $viewport);
+// 	@return $rate * $size * 1vw;
+// }
+
+// @mixin sp_font($font_size:10) {
+// 	font-size: $font_size * 1px;
+// 	font-size: get_vw($font_size);
+// }
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	color: #3e3a39;
+	background-color: #fefefe;
+	font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial;
+}
+
+.badge {
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+		display: inline-block;
+    font-size: 12px;
+    background: #1779ba;
+    color: #fefefe;
+    padding: .25em .4em;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+select:focus {
+  outline: none;
+}
+
+.flatpickr-monthDropdown-months {
+  height: 28px !important;
+}
+.flatpickr-calendar .flatpickr-current-month {
+	flex-direction: row !important;
+	align-items: center !important;
+}

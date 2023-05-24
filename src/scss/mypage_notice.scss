@@ -1,0 +1,423 @@
+
+// Mypage notice 通知
+@charset "UTF-8";
+@import "import/common_mypage_back";
+// @import "import/common_mypage";
+
+// 通知
+.notice-menu-area {
+	height: calc(100vh - 145px);
+	overflow-y: scroll;
+	.notice-menu {
+		margin: 10px 15px;
+		display: block;
+		cursor: pointer;
+		&:hover {
+			opacity: 0.7;
+		}
+		.title {
+			display: flex;
+			align-items: center;
+			font-size: 13px;
+			line-height: 1.2;
+			font-weight: 600;
+			i {
+				margin-right: .5em;
+				font-size: 20px;
+			}
+			.notice-type {
+				font-size: 10px;
+				font-weight: 600;
+				display: inline-block;
+				margin-left: 5px;
+				line-height: 1;
+				padding: 2px 5px;
+				border-radius: 2px;
+			}
+			.type-color01 { // 修正
+				background-color: #db2828;
+				border: 1px solid #db2828;
+				color: #fff;
+			}
+			.type-color02 { // 削除
+				background-color: #f2711c;
+				border: 1px solid #f2711c;
+				color: #fff;
+			}
+			.type-color03 { // 遅刻
+				background-color: #a333c8;
+				border: 1px solid #a333c8;
+				color: #fff;
+			}
+			.type-color04 { // 早退
+				background-color: #b5cc18;
+				border: 1px solid #b5cc18;
+				color: #fff;
+			}
+			.type-color05 { // 残業
+				background-color: #21ba45;
+				border: 1px solid #21ba45;
+				color: #fff;
+			}
+			.type-color06 { // 有給
+				background-color: #fbbd08;
+				border: 1px solid #fbbd08;
+				color: #502e00;
+			}
+			.type-color07 { //欠勤
+				background-color: #6435c9;
+				border: 1px solid #6435c9;
+				color: #fff;
+			}
+			.type-color08 { // その他
+				background-color: #2185d0;
+				border: 1px solid #2185d0;
+				color: #fff;
+			}
+			.type-color11 { // 休暇
+				background-color: #e03997;
+				border: 1px solid #e03997;
+				color: #fff;
+			}
+			.alert-success {
+				opacity: 0.4;
+			}
+		}
+		.sub-title {
+			font-size: 12px;
+			text-align: right;
+		}
+		.box-main {
+			font-size: 12px;
+			font-weight: 600;
+			line-height: 1.2;
+			margin-top: 10px;
+		}
+	}
+}
+.alert {
+	padding: 10px !important;
+	position: relative;
+	.non-read {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		display: block;
+		font-size: 11px;
+		font-weight: 600;
+		line-height: 1;
+		border-radius: 2px;
+		background: #ff5b5b;
+		color: #fff;
+		padding: 5px;
+	}
+}
+.notice-select {
+	border-color: #1d99fd !important;
+	border-width: 3px !important;
+}
+
+.sidebar {
+	border-right: 1px solid #ababab;
+}
+
+.notice-header {
+	width: calc(100% - 260px);
+	height: 80px;
+	padding: 10px;
+	border-bottom: 1px solid #ababab;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 2;
+	.inner {
+		display: flex;
+		align-items: center;
+		.notice-header-icon {
+			width: 60px;
+			height: 60px;
+			text-align: center;
+			flex: 0 0 auto;
+			i {
+				font-size: 32px;
+			}
+		}
+		.alert {
+			margin-bottom: 0;
+		}
+		.notice-header-text-area {
+			margin-left: 10px;
+			padding: 5px;
+			.notice-header-title {
+				margin-bottom: 8px;
+				font-weight: bold;
+				.title {
+					font-size: 15px;
+					font-weight: bold;
+					padding: 5px 10px;
+					margin: 0 3px;
+					border-radius: 3px;
+				}
+				.type-color01 { // 修正
+					background-color: #db2828;
+					border: 1px solid #db2828;
+					color: #fff;
+				}
+				.type-color02 { // 削除
+					background-color: #f2711c;
+					border: 1px solid #f2711c;
+					color: #fff;
+				}
+				.type-color03 { // 遅刻
+					background-color: #a333c8;
+					border: 1px solid #a333c8;
+					color: #fff;
+				}
+				.type-color04 { // 早退
+					background-color: #b5cc18;
+					border: 1px solid #b5cc18;
+					color: #fff;
+				}
+				.type-color05 { // 残業
+					background-color: #21ba45;
+					border: 1px solid #21ba45;
+					color: #fff;
+				}
+				.type-color06 { // 有給
+					background-color: #fbbd08;
+					border: 1px solid #fbbd08;
+					color: #502e00;
+				}
+				.type-color07 { //欠勤
+					background-color: #6435c9;
+					border: 1px solid #6435c9;
+					color: #fff;
+				}
+				.type-color08 { // その他
+					background-color: #2185d0;
+					border: 1px solid #2185d0;
+					color: #fff;
+				}
+				.type-color11 { // 休暇
+					background-color: #e03997;
+					border: 1px solid #e03997;
+					color: #fff;
+				}
+				.alert-success {
+					opacity: 0.4;
+				}
+			}
+			.state {
+				font-size: 15px;
+				font-weight: bold;
+			}
+			.notice-header-subtitle {
+				font-size: 13px;
+				font-weight: 300;
+				.date-title {
+					font-size: 12px;
+					font-weight: bold;
+					background-color: #009688;
+					color: #fff;
+					padding: 3px;
+					margin-right: 5px;
+				}
+				.date {
+					font-size: 14px;
+					font-weight: bold;
+					color: #009688;
+					margin-right: 5px;
+				}
+			}
+		}
+		.notice-header-btn {
+			font-size: 14px;
+			border: 1px solid #e5e5e5;
+			background-color: #fff;
+			padding: 0.8em 2em;
+			margin: 0 5px;
+			display: block;
+			cursor: pointer;
+			&:hover {
+				border: 1px solid #222;
+			}
+		}
+	}
+	.auth-btn {
+		flex: 0 0 auto;
+	}
+}
+@media (max-width: 991px) {
+	.notice-header {
+		width: 100%;
+	}
+}
+
+.notice-body {
+	overflow-y: scroll;
+	padding: 80px 0;
+	.notice-bloc {
+		
+		width: 100%;
+		padding: 10px;
+		
+		.inner {
+			display: flex;
+			border: 1px solid #ccc;
+			border-radius: 7px;
+			background-color: #fff;
+			box-sizing: border-box;
+			padding: 10px;
+			margin-left: 30px;
+			margin-bottom: 10px;
+			position: relative;
+			.notice-icon {
+				width: 50px;
+				height: 50px;
+				border: 1px solid #ccc;
+				background-color: #ccc;
+				border-radius: 2px;
+				flex: 0 0 auto;
+			}
+			.notice-message-box {
+				margin-left: 10px;
+				.notice-user-name {
+					font-size: 16px;
+					font-weight: 600;
+					margin-bottom: 10px;
+					.notice-date {
+						display: inline;
+						font-size: 14px;
+						font-weight: 300;
+						margin-left: 1em;
+						color: #949494;
+					}
+				}
+				.notice-message {
+					font-size: 15px;
+					line-height: 1.5;
+				}
+				.permit {
+					font-size: 20px;
+					font-weight: bold;
+					color: #155724;
+					&::before {
+						content: "\f00c\00a0";
+						font-family: "Font Awesome 5 Free";
+					}
+				}
+				.ng {
+					font-size: 20px;
+					font-weight: bold;
+					color: #7f231c;
+					&::before {
+						content: "\f12a\00a0";
+						font-family: "Font Awesome 5 Free";
+					}
+				}
+			}
+			.message-img {
+				position: absolute;
+				top: 0;
+				left: -50px;
+				width: 50px;
+				height: 70px;
+				background-image: url(../images/message_left.png);
+			}
+		}
+		.no-read {
+			border: 1px solid #ff7b7b;
+			background-color: #ffe8e8;
+			-moz-animation: cssAnimation 0s ease-in 1s forwards;
+    	-webkit-animation: cssAnimation 0s ease-in 1s forwards;
+    	-o-animation: cssAnimation 0s ease-in 1s forwards;
+    	animation: cssAnimation 0s ease-in 1s forwards;
+    	-webkit-animation-fill-mode: forwards;
+    	animation-fill-mode: forwards;
+		}
+		.my {
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			margin-right: 30px;
+			margin-left: 0;
+			.message-img {
+				position: absolute;
+				top: 0;
+				left: inherit;
+				right: -50px;
+				width: 50px;
+				height: 70px;
+				background-image: url(../images/message_right.png);
+			}
+		}
+	}
+}
+@keyframes cssAnimation {
+  to {
+		border: 1px solid #ccc;
+		background-color: #fff;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  to {
+		border: 1px solid #ccc;
+		background-color: #fff;
+  }
+}
+
+.notice-comment-area {
+	width: calc(100% - 260px);
+	height: 80px;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid #283d56;
+	background-color: #7eb7d2;
+	.inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.notice-input-area {
+			width: 100%;
+			textarea {
+				width: 100%;
+				height: 60px;
+				border-radius: 5px;
+				padding: 5px;
+				font-size: 18px;
+			}
+		}
+		.notice-submit {
+			width: 150px;
+			.notice-submit-btn {
+				text-align: center;
+				font-size: 14px;
+				border: 1px solid #e5e5e5;
+				background-color: #fff;
+				padding: 0.8em 2em;
+				margin: 0 5px;
+				display: block;
+				cursor: pointer;
+				&:hover {
+					border: 1px solid #222;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 991px) {
+	.notice-comment-area {
+		width: 100%;
+	}
+}
+.disabled {
+  top: 1px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+  position: relative;
+  background-color: #ccc;
+  pointer-events: none;
+}

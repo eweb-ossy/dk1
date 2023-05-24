@@ -1,0 +1,526 @@
+// Mypage dashboard ダッシュボード
+@charset "UTF-8";
+@import "import/common";
+// @import "import/common_mypage";
+@import "import/common_mypage_back";
+// @import "import/common";
+@import "import/_modal_custom";
+
+.notice-dashboard {
+	display: none;
+	height: 310px;
+}
+.notice-dashboard-body {
+	height: 280px;
+	overflow-y: scroll;
+}
+
+.main-panel>.content {
+    @include mq(sp) {
+        padding: 0;
+    }
+}
+
+@include mq(sp) {
+	.collapse {
+		display: block;
+		flex-basis: auto;
+		flex-grow: initial;
+	}
+    .clock-view .card {
+        margin: 0;
+    }
+    // .clock-view .users-status-area {
+    //     // display: none;
+    // }
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+// 時計
+.time-text {
+	font-family: "D7MI";
+	position: relative;
+	height: 1em;
+	color: #1dbdd2;
+	.time-background,
+	.time-front {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		width: 112px;
+	}
+	.second-back,
+	.second-text {
+		font-size: 0.6em;
+		line-height: 1.6;
+	}
+	.second-back,
+	.time-back {
+		color: #ebebeb;
+	}
+}
+// 通知
+.alert {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	position: relative;
+	&:hover {
+		opacity: 0.7;
+	}
+	.alert-content {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		.alert-icon {
+			margin-right: 12px;
+			.far {
+				font-size: 26px;
+			}
+			.fas {
+				font-size: 26px;
+			}
+			.fab {
+				font-size: 26px;
+			}
+		}
+		.alert-title {
+			font-size: 15px;
+			font-weight: 600;
+			width: 120px;
+			.title {
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 1.2;
+			}
+			.date {
+				font-weight: 300;
+				font-size: 7px;
+			}
+		}
+		.alert-text {
+			font-size: 14px;
+		}
+		.notice-type {
+			padding: 10px 5px;
+			margin-right: 5px;
+			border-radius: 2px;
+			font-size: 12px;
+			font-weight: 600;
+		}
+		.type-color01 { // 修正
+			background-color: #db2828;
+			border: 1px solid #db2828;
+			color: #fff;
+		}
+		.type-color02 { // 削除
+			background-color: #f2711c;
+			border: 1px solid #f2711c;
+			color: #fff;
+		}
+		.type-color03 { // 遅刻
+			background-color: #a333c8;
+			border: 1px solid #a333c8;
+			color: #fff;
+		}
+		.type-color04 { // 早退
+			background-color: #b5cc18;
+			border: 1px solid #b5cc18;
+			color: #fff;
+		}
+		.type-color05 { // 残業
+			background-color: #21ba45;
+			border: 1px solid #21ba45;
+			color: #fff;
+		}
+		.type-color06 { // 有給
+			background-color: #fbbd08;
+			border: 1px solid #fbbd08;
+			color: #502e00;
+		}
+		.type-color07 { //欠勤
+			background-color: #6435c9;
+			border: 1px solid #6435c9;
+			color: #fff;
+		}
+		.type-color08 { // その他
+			background-color: #2185d0;
+			border: 1px solid #2185d0;
+			color: #fff;
+		}
+		.type-color11 { // 休暇
+			background-color: #e03997;
+			border: 1px solid #e03997;
+			color: #fff;
+		}
+		.alert-success {
+			opacity: 0.4;
+		}
+		
+	}
+	.non-read {
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		display: block;
+		font-size: 11px;
+		font-weight: 600;
+		line-height: 1;
+		border-radius: 2px;
+		background: #ff5b5b;
+		color: #fff;
+		padding: 5px;
+	}
+}
+.nav-link {
+	cursor: pointer;
+}
+// 出退勤
+.input-area {
+	display: flex;
+	justify-content: space-between;
+	.input-btn-bloc {
+		margin: 5px;
+		width: 100%;
+		height: 150px;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: space-between;
+		.input-btn {
+			width: 100%;
+			height: 100%;
+			background-color: #35b8cb;
+			border-radius: 10px;
+			transition: 0.3s;
+			cursor: pointer;
+			color: #fff;
+			text-align: center;
+			font-size: 14px;
+			font-weight: 600;
+			padding-top: 3px;
+			transition: .3s;
+			&:hover {
+				background-color: #6fcad7;
+			}
+		}
+		.two {
+			height: 49%;
+		}
+		.in-input {
+			background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" viewBox="0 0 65 95" xmlns="http://www.w3.org/2000/svg"><path d="M8 32.6V3.9h52.1v87.2H8V62.4H5v32.2h58.1V.4H5v32.2z"/><path d="M3.8 49.4h29.3L23 59.5c-.7.7-.7 1.9 0 2.7.7.7 1.9.7 2.7 0L39 48.8c.1-.1.2-.2.2-.3l.1-.1c0-.1.1-.1.1-.2s0-.1.1-.2v-1.2c0-.1 0-.1-.1-.2 0-.1-.1-.1-.1-.2 0 0 0-.1-.1-.1-.1-.1-.1-.2-.2-.3L25.7 32.9c-.7-.7-1.9-.7-2.7 0-.7.7-.7 1.9 0 2.7l10.1 10.1H3.8c-1 0-1.9.8-1.9 1.9 0 .9.9 1.8 1.9 1.8z"/></svg>');
+			background-size: 25px;
+			background-position: 50% 70%;
+			background-repeat: no-repeat;
+		}
+		.out-input {
+			background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" viewBox="0 0 105 95" xmlns="http://www.w3.org/2000/svg"><path d="M69.1 49.6h29.3L88.3 59.7c-.7.7-.7 1.9 0 2.7.7.7 1.9.7 2.7 0L104.3 49c.1-.1.2-.2.2-.3l.1-.1c0-.1.1-.1.1-.2s0-.1.1-.2V47c0-.1 0-.1-.1-.2 0-.1-.1-.1-.1-.2 0 0 0-.1-.1-.1-.1-.1-.1-.2-.2-.3L91 33.1c-.7-.7-1.9-.7-2.7 0-.7.7-.7 1.9 0 2.7l10.1 10.1H69.1c-1 0-1.9.8-1.9 1.9s.9 1.8 1.9 1.8z"/><path d="M78.1 62.6v28.7H25.9V4.1h52.2v28.7H81V.6H23v94.2h58V62.6z"/></svg>');
+			background-size: 40px;
+			background-position: 50% 70%;
+			background-repeat: no-repeat;
+		}
+		.disable {
+			background-color: #9f9f9f;
+			cursor: default;
+			user-select: none;
+			pointer-events: none;
+			&:hover {
+				background-color: #9f9f9f;
+			}
+		}
+	}
+	.in-btn {
+		margin-left: 0;
+	}
+	.out-btn {
+		margin-right: 0;
+	}
+}
+.input-message {
+	display: none;
+	padding: 0.5em;
+	background-color: #fafafa;
+	margin: 1em 0;
+	border: 1px solid #E5E5E5;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #666;
+	border-radius: 4px;
+	@include mq(sp) {
+		font-size: 9px;
+	}
+	&.danger {
+		background-color: #fff1f0;
+		color: #d85030;
+		border-color: rgba(216,80,48,.3);
+	}
+}
+
+.users-status-area {
+	.inner {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		max-height: 130px;
+		.in-list, .out-list {
+			width: 48%;
+			position: relative;
+			overflow: hidden;
+			.title {
+				font-size: 12px;
+				line-height: 2;
+			}
+			ul {
+				margin-top: 10px;
+				max-height: 95px;
+				width: calc(100% + 17px);
+				list-style-type: none;
+				overflow-y: scroll;
+				margin: 0;
+				padding: 0;
+				li {
+					color: #357788;
+					font-size: 12px;
+					line-height: 1.5;
+				}
+			}
+		}
+	}
+}
+
+// badge 
+.badge {
+	margin-left: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	display: none;
+}
+.nav-item {
+	position: relative;
+}
+.badge-text1 {
+	position: absolute;
+	top: -3px;
+	left: 115px;
+	font-size: 9px;
+	color: #0c5460;
+	display: none;
+}
+.badge-text2 {
+	position: absolute;
+	top: -3px;
+	left: 160px;
+	font-size: 9px;
+	color: #b71c1c;
+	display: none;
+}
+
+// 
+.dashboard-notice-btn-area {
+	display: flex;
+	align-items: center;
+}
+.dashboard-notice-btn {
+	padding: .5em 1em;
+	background-color: #35b8cb;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 600;
+	transition: .3s;
+	&:hover {
+		background-color: #6fcad7;
+	}
+}
+.dashboard-status-btn, .dashboard-shift-btn {
+	background-color: #35b8cb;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	padding: 4px;
+	font-weight: 600;
+	margin-right: 10px;
+	transition: .3s;
+	&:hover {
+		background-color: #6fcad7;
+	}
+}
+
+// モーダル2用
+.flatpickr-calendar {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.modal-date-area {
+  width: 0 !important;
+}
+.modal-row {
+	@include mq(sp) {
+		display: block !important;
+	}
+}
+.status-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 280px;
+  margin-left: 15px;
+  @include mq(sp) {
+	height: auto;
+	margin-left: 0;
+  }
+}
+.date-area {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @include mq(sp) {
+	margin: 8vw 0;
+  }
+  #date-area-wareki {
+    font-size: 12px;
+    margin-right: .5em;
+  }
+  .date-bloc {
+    width: 260px;
+    font-size: 25px;
+    color: #1b97a8;
+    margin-bottom: 10px;
+	@include mq(sp) {
+		width: 100%;
+	}
+  }
+  .today-mark {
+    font-size: 9px;
+    font-weight: bold;
+    padding: .5em;
+    background-color: #ccc;
+    border-radius: 3px;
+    color: #fff;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: #f07a7a;
+    }
+  }
+  .today {
+    background-color: #f07a7a;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+.date-sub {
+	text-align: right;
+	margin-bottom: 10px;
+	color: #1b97a8;
+}
+.time-bloc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-top: 5px;
+}
+.time-status {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1690a2;
+  margin-top: 10px;
+}
+.form-group {
+  margin-bottom: 10px;
+}
+.notice-btn {
+  -webkit-appearance: button;
+  appearance: button;
+  cursor: pointer;
+  padding: .6em 1em;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.5;
+  border-radius: .2rem;
+  color: #fff;
+  background-color: #4caf50;
+  border-color: #4caf50;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(76,175,80,.14), 0 3px 1px -2px rgba(76,175,80,.2), 0 1px 5px 0 rgba(76,175,80,.12);
+  box-shadow: 0 2px 2px 0 rgba(76,175,80,.14), 0 3px 1px -2px rgba(76,175,80,.2), 0 1px 5px 0 rgba(76,175,80,.12);
+  &:focus {
+    outline: none;
+  }
+}
+.notice-btn.disabled {
+	background: #ccc !important;
+	user-select: none !important;
+	box-shadow: none !important;
+	cursor: auto !important;
+  border-color: #ccc;
+  pointer-events: none;
+
+	&::focus {
+		box-shadow: none !important;
+	}
+
+	&::hover {
+		box-shadow: none !important;
+	}
+}
+.notice-btn.notice-active {
+	font-size: 15px;
+	font-weight: 600;
+}
+.shift-status {
+  margin: 5px;
+  font-weight: 600;
+}
+.select-notice, .time-edit-area, .notice-comment-area, .notice-paid-select {
+  display: none;
+}
+.notice-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #1690a2;
+  box-shadow: 0 2px 2px 0 rgba(76, 139, 175, 0.14), 0 3px 1px -2px rgba(76, 139, 175, 0.14), 0 1px 5px 0 rgba(76, 139, 175, 0.14);
+}
+.mail-memo textarea {
+	@include mq(sp) {
+		font-size: 16px !important;
+	}
+}
+
+// flatpickr 
+.wareki-year {
+  font-size: 12px;
+}
+.sun, .week-0 {
+  color: #f00 !important;
+}
+.sat, .week-6 {
+  color: #00f !important;
+}
+.week-0.prevMonthDay, .week-0.nextMonthDay, .week-0.flatpickr-disabled {
+  color: rgba(#f00, 0.3) !important;
+}
+.week-6.prevMonthDay, .week-6.nextMonthDay, .week-6.flatpickr-disabled {
+  color: rgba(#00f, 0.3) !important;
+}
+.flatpickr-day.selected {
+  color: #fff !important;
+}
+.flatpickr-monthDropdown-months {
+    height: 28px!important;
+}

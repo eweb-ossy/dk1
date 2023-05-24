@@ -1,0 +1,478 @@
+
+
+.container {
+  width: 100%;
+  background-color: #fff;
+  height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+// header menu
+.header {
+  width: 100%;
+	z-index: 99;
+}
+.header-top {
+  background-color: #3e3a39;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+.header-top-l {
+	display: flex;
+	align-items: center;
+	.header-top-logo {
+		margin-left: 20px;
+	}
+	.header-top-text-l {
+		font-size: 13px;
+		color: #d4d2d2;
+    margin-left: 1em;
+    @include mq(sp) {
+      display: none;
+    }
+	}
+}
+
+.header-top-r {
+	display: flex;
+	align-items: center;
+	.header-top-text-r {
+	  font-size: 13px;
+	  color: #d4d2d2;
+		margin-right: 1em;
+	}
+	.header-top-btn-r {
+	  padding: 0;
+	  width: 40px;
+	  height: 40px;
+	  a {
+	    display: block;
+	    width: 40px;
+	    height: 40px;
+			background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="19" viewBox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10.1,9.5L17,2.6c0.1-0.1,0.1-0.2,0.1-0.3c0-0.2-0.2-0.4-0.4-0.4c-0.1,0-0.2,0-0.3,0.1L9.5,8.9L2.6,2 C2.5,2,2.4,1.9,2.3,1.9c-0.2,0-0.4,0.2-0.4,0.4c0,0.1,0,0.2,0.1,0.3l6.9,6.9L2,16.4c-0.1,0.1-0.1,0.2-0.1,0.3 c0,0.2,0.2,0.4,0.4,0.4c0.1,0,0.2,0,0.3-0.1l6.9-6.9l6.9,6.9c0.1,0.1,0.2,0.1,0.3,0.1c0.2,0,0.4-0.2,0.4-0.4c0-0.1,0-0.2-0.1-0.3 L10.1,9.5z"/></svg>');
+	    background-position: center;
+	    background-repeat: no-repeat;
+			background-color: #1591a2;
+			border-left: 1px solid #eee;
+	    &:hover {
+	      background-color: #1dbdd2;
+	    }
+	  }
+	}
+}
+
+// menu
+.header-menu-area {
+  background-color: #eee;
+  width: 100%;
+  height: 88px;
+  border-bottom: 1px solid #1591a2;
+  display: flex;
+  justify-content: space-between;
+	@include mq(sp) {
+		height: 60px;
+	}
+}
+.menu-bloc {
+  margin: 1px 1px 0 0;
+  width: 100%;
+  height: 85px;
+  text-align: center;
+  overflow: hidden;
+	@include mq(sp) {
+		height: 60px;
+	}
+  &:last-child {
+    margin-right: 0;
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 85px;
+    padding-top: 64px;
+    color: #fff;
+		font-size: 12px;
+		@include mq(sp) {
+	    text-indent: -9999px;
+			height: 60px;
+	  }
+    &:hover {
+      background-color: #1dbdd2;
+    }
+  }
+  .active {
+    background-color: #1dbdd2;
+  }
+  .disable {
+    background-color: #9f9f9f;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+.admin-btn-01 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="34" viewBox="0 0 42 34" width="42" xmlns="http://www.w3.org/2000/svg"><path d="M21.2,0.5c-4,3-13.6,11.7-20.7,11.7c-0.5,0-0.3,0.3-0.3,0.3l6.3,2.6l-3.8,3.8v6.2L23,33.6l18.6-18.4V9 L21.2,0.5z M5.7,12.9c2.1-0.8,4.3-2,6.4-3.3c0.5-0.3,1-0.7,1.5-1c0.1-0.1,0.2-0.2,0.3-0.2c0.5-0.3,1-0.7,1.4-1 c0.1,0,0.1-0.1,0.2-0.1c0.5-0.3,0.9-0.7,1.3-1C17,6.1,17,6.1,17.1,6c0.5-0.4,1-0.7,1.4-1.1L35,11.8c-4.4,3.3-9.9,7.1-14.2,7.1 c-0.3,0-0.6,0-0.9-0.1L9.6,14.5l-1.8-0.7L5.7,12.9z M8.3,15.9l11.1,4.7c0.4,0.1,0.9,0.1,1.4,0.1c4.5,0,9.9-3.4,14.3-6.7L22.4,26.5 L4.9,19.2L8.3,15.9z M39.7,14.5l-17.2,17L4.5,24v-1.5l18.2,7.6l17.1-16.9V14.5z M39.7,12.1L22.5,29.2l-18-7.5v-1.6l18.2,7.6 l17.1-16.9V12.1z"/><path d="M17.1,15.3c0.1,0,0.2,0,0.2,0l1.6-0.7c0.2-0.1,0.4-0.2,0.5-0.3l5.3-3.8c0.1,0,0.1-0.1,0-0.1l-1.2-0.6 c-0.1,0-0.2-0.1-0.3,0l-2.1,0c-0.1,0-0.2,0-0.2,0.1l-1.3,1c-0.1,0.1-0.1,0.1,0.1,0.1l2,0l0,0L18,13.5l-2.2,1c-0.1,0-0.1,0.1,0,0.1 L17.1,15.3z"/></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: 50%;
+		background-size: 80%;
+	}
+}
+.admin-btn-02 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="35" viewBox="0 0 32 35" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M27.3,3.8h-0.2v1.8c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2V3.8h-4.9v1.8c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2V3.8H9.3 v1.8c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2V3.8H5.1c-2.4,0-4.4,2-4.4,4.4v3.3h30.9V8.1C31.7,5.7,29.7,3.8,27.3,3.8z"/><path d="M7.3,6.7c0.6,0,1.1-0.5,1.1-1.1V2c0-0.6-0.5-1.1-1.1-1.1S6.2,1.4,6.2,2v3.6C6.2,6.2,6.7,6.7,7.3,6.7z"/><path d="M16.2,6.7c0.6,0,1.1-0.5,1.1-1.1V2c0-0.6-0.5-1.1-1.1-1.1c-0.6,0-1.1,0.5-1.1,1.1v3.6 C15.1,6.2,15.6,6.7,16.2,6.7z"/><path d="M25.1,6.7c0.6,0,1.1-0.5,1.1-1.1V2c0-0.6-0.5-1.1-1.1-1.1S24,1.4,24,2v3.6C24,6.2,24.5,6.7,25.1,6.7z"/><path d="M0.7,13v16.7c0,2.4,2,4.4,4.4,4.4h22.2c2.4,0,4.4-2,4.4-4.4V13H0.7z M8.8,30.4H5.5v-3.3h3.3V30.4z M8.8,24.8 H5.5v-3.3h3.3V24.8z M8.8,19.2H5.5v-3.3h3.3V19.2z M15,30.4h-3.3v-3.3H15V30.4z M15,24.8h-3.3v-3.3H15V24.8z M15,19.2h-3.3v-3.3H15 V19.2z M21.1,30.4h-3.3v-3.3h3.3V30.4z M21.1,24.8h-3.3v-3.3h3.3V24.8z M21.1,19.2h-3.3v-3.3h3.3V19.2z M26.8,30.4h-3.3v-3.3h3.3 V30.4z M26.8,24.8h-3.3v-3.3h3.3V24.8z M26.8,19.2h-3.3v-3.3h3.3V19.2z"/></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-03 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="39" viewBox="0 0 32 39" width="32" xmlns="http://www.w3.org/2000/svg"><g><path d="M30.4,6.9c-0.3-0.7-0.7-1.2-1.3-1.6c-0.6-0.4-1.3-0.6-2-0.6h-3.1V4.1h-4.6c0-0.1,0-0.3,0-0.5 c0-1.8-1.5-3.3-3.3-3.3c-1.8,0-3.3,1.5-3.3,3.3c0,0.2,0,0.3,0,0.5H8.4v0.5H5.2c-0.5,0-1,0.1-1.4,0.3C3.2,5.2,2.6,5.7,2.2,6.2 c-0.4,0.6-0.6,1.3-0.6,2v26.2c0,0.5,0.1,1,0.3,1.4c0.3,0.7,0.7,1.2,1.3,1.6c0.6,0.4,1.3,0.6,2,0.6h21.8c0.5,0,1-0.1,1.4-0.3 c0.7-0.3,1.2-0.7,1.6-1.3c0.4-0.6,0.6-1.3,0.6-2V8.3C30.7,7.8,30.6,7.3,30.4,6.9z M16.2,2.4c0.7,0,1.2,0.5,1.2,1.2 c0,0.2,0,0.3-0.1,0.5H15c-0.1-0.1-0.1-0.3-0.1-0.5C14.9,3,15.5,2.4,16.2,2.4z M28.6,34.5c0,0.2,0,0.4-0.1,0.6 c-0.1,0.3-0.3,0.5-0.5,0.7c-0.2,0.2-0.5,0.3-0.8,0.3H5.2c-0.2,0-0.4,0-0.6-0.1c-0.3-0.1-0.5-0.3-0.7-0.5c-0.2-0.2-0.3-0.5-0.3-0.8 V8.3c0-0.2,0-0.4,0.1-0.6C4,7.4,4.2,7.2,4.4,7.1c0.2-0.2,0.5-0.3,0.8-0.3h3.1v0.5c0,0.8,0.7,1.5,1.5,1.5h12.5 c0.8,0,1.5-0.7,1.5-1.5V6.8h3.1c0.2,0,0.4,0,0.6,0.1c0.3,0.1,0.5,0.3,0.7,0.5c0.2,0.2,0.3,0.5,0.3,0.8V34.5z"/></g><path d="M21.5,25.8c-1.2-0.2-2.7-1.3-2.7-1.8v-1.2c0-0.5,0.6-1.3,0.9-2.1c0-0.1,0.2,0,0.3-0.2c0.3-0.4,0.3-0.9,0.4-1.2 c0.1-0.4-0.4-0.4-0.4-0.4s0.4-2,0-3.3c-0.4-1.8-2.7-2.6-3.6-2.6c-0.9,0-3.2,0.9-3.6,2.6c-0.3,1.3,0,3.3,0,3.3s-0.5,0-0.4,0.4 c0.1,0.2,0.1,0.8,0.4,1.2c0.2,0.2,0.2,0.1,0.3,0.2c0.3,0.8,0.9,1.6,0.9,2.1V24c0,0.5-1.6,1.6-2.7,1.8C10,26,9.2,27.1,9.6,29.6 c0.2,1.3,3.5,1.8,6.9,1.8c3.3,0,6.7-0.5,6.9-1.8C23.7,27.1,23,26,21.5,25.8z"/></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-04 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="33" viewBox="0 0 40 33" width="40" xmlns="http://www.w3.org/2000/svg"><g><path d="M22.1,12.2"/></g><g><g><path d="M31.7,32.1H7.9V3.8h18.6c0.4,0,0.6,0.3,0.6,0.6c0,0.4-0.3,0.6-0.6,0.6H9.2v25.7h21.2V16.7 c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6V32.1z"/></g><path d="M38.6,2.5c-0.3-0.7-1-1.3-1.8-1.3c-0.5,0-1,0.2-1.3,0.6l-1.8,1.8c0,0,0,0,0,0s0,0,0,0L23.2,14.1 c0,0-0.1,0.1-0.1,0.2l-1.8,3.6c-0.1,0.2-0.1,0.5,0.1,0.7c0.1,0.1,0.3,0.2,0.5,0.2c0.1,0,0.2,0,0.3-0.1l3.6-1.8 c0.1,0,0.1-0.1,0.2-0.1L36.4,6.4l0,0l0,0l1.8-1.8C38.8,4,38.9,3.2,38.6,2.5z M25.1,15.8l-1.8,0.9l0.9-1.8L34.1,5L35,5.9L25.1,15.8z M37.3,3.6L35.9,5L35,4.1l1.4-1.4c0.1-0.1,0.3-0.2,0.4-0.2c0.3,0,0.5,0.2,0.6,0.5C37.5,3.2,37.5,3.4,37.3,3.6z"/></g></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-05 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="36" viewBox="0 0 28 36" width="28" xmlns="http://www.w3.org/2000/svg"><g><path d="M16.1,13.2"/></g><path d="M23.3,24.8c-2.1-0.4-5-2.4-5-3.3v-2.2c0-0.8,1.1-2.4,1.6-3.8c0-0.1,0.3,0,0.6-0.3c0.5-0.7,0.6-1.7,0.7-2.1 c0.2-0.7-0.7-0.7-0.7-0.7s0.6-3.7,0.1-6.1c-0.8-3.2-4.9-4.8-6.6-4.8c-1.6,0-5.8,1.6-6.6,4.8C7,8.5,7.6,12.3,7.6,12.3S6.8,12.3,7,13 c0.1,0.5,0.3,1.5,0.8,2.1c0.3,0.3,0.5,0.2,0.5,0.3c0.5,1.4,1.6,3,1.6,3.8v2.2c0,0.9-2.9,2.9-5,3.3c-2.7,0.5-4.1,2.3-3.4,7 c0.3,2.3,6.5,3.3,12.6,3.3c6.1,0.1,12.4-0.9,12.7-3.3C27.3,27.2,26,25.3,23.3,24.8z"/></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 65%;
+	}
+}
+.admin-btn-06 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="36" viewBox="0 0 32 36" width="32" xmlns="http://www.w3.org/2000/svg"><g><path d="M14.1,13.2"/></g><g><path d="M15,35.6h-3.5c-0.2,0-0.4-0.1-0.5-0.4l-0.8-2.8c-1.4-0.4-2.6-1.2-3.7-2.1L3.7,31c-0.2,0.1-0.4,0-0.6-0.2 l-1.7-3c-0.1-0.2-0.1-0.4,0.1-0.6l2-2.1c-0.2-0.7-0.3-1.5-0.3-2.2c0-0.7,0.1-1.4,0.2-2.1l-2-2.1c-0.2-0.2-0.2-0.4-0.1-0.6l1.7-3 c0.1-0.2,0.3-0.3,0.6-0.2l2.8,0.7c1.1-1,2.4-1.7,3.8-2.2l0.8-2.7c0.1-0.2,0.3-0.4,0.5-0.4H15c0.2,0,0.4,0.1,0.5,0.4l0.8,2.7 c1.4,0.4,2.7,1.2,3.8,2.2l2.8-0.7c0.2-0.1,0.4,0,0.6,0.2l1.7,3c0.1,0.2,0.1,0.4-0.1,0.6l-2,2.1c0.2,0.7,0.2,1.4,0.2,2.1 c0,0.7-0.1,1.5-0.2,2.2l2,2.1c0.2,0.2,0.2,0.4,0.1,0.6l-1.7,3C23.3,30.9,23,31,22.8,31L20,30.3c-1.1,1-2.3,1.7-3.7,2.1l-0.8,2.8 C15.4,35.5,15.2,35.6,15,35.6z M11.9,34.6h2.7l0.8-2.7c0-0.2,0.2-0.3,0.3-0.3c1.4-0.4,2.7-1.1,3.7-2.2c0.1-0.1,0.3-0.2,0.5-0.1 l2.8,0.7l1.4-2.3l-2-2c-0.1-0.1-0.2-0.3-0.1-0.5c0.2-0.7,0.3-1.5,0.3-2.2c0-0.7-0.1-1.4-0.3-2.1c0-0.2,0-0.3,0.1-0.5l2-2l-1.4-2.3 L20,16.6c-0.2,0-0.3,0-0.5-0.1c-1.1-1-2.4-1.8-3.8-2.2c-0.2,0-0.3-0.2-0.3-0.3l-0.8-2.6h-2.7l-0.7,2.6c0,0.2-0.2,0.3-0.3,0.3 C9.4,14.7,8,15.4,7,16.5c-0.1,0.1-0.3,0.2-0.5,0.1l-2.7-0.7l-1.4,2.3l1.9,2c0.1,0.1,0.2,0.3,0.1,0.5c-0.2,0.7-0.3,1.4-0.3,2.2 c0,0.7,0.1,1.5,0.3,2.2c0,0.2,0,0.3-0.1,0.5l-1.9,2l1.4,2.3l2.7-0.7c0.2,0,0.3,0,0.5,0.1c1,1,2.3,1.7,3.7,2.1 c0.2,0,0.3,0.2,0.3,0.3L11.9,34.6z M10.6,13.8L10.6,13.8L10.6,13.8z M15.6,27.5h-4.7c-0.2,0-0.3-0.1-0.4-0.2l-2.4-4.1 C8,23,8,22.8,8.1,22.7l2.4-4.1c0.1-0.2,0.3-0.2,0.4-0.2h4.8c0.2,0,0.3,0.1,0.4,0.2l2.4,4.1c0.1,0.2,0.1,0.3,0,0.5L16,27.3 C16,27.4,15.8,27.5,15.6,27.5z M11.2,26.5h4.1l2.1-3.6l-2.1-3.6h-4.2l-2.1,3.6L11.2,26.5z"/><path d="M26.9,11.4h-1.5c-0.1,0-0.2-0.1-0.2-0.2L24.8,10c-0.6-0.2-1.1-0.5-1.6-0.9l-1.2,0.3c-0.1,0-0.2,0-0.3-0.1L21,8 c-0.1-0.1,0-0.2,0-0.3l0.9-0.9c-0.1-0.3-0.1-0.6-0.1-0.9c0-0.3,0-0.6,0.1-0.9l-0.8-0.9C21,4,21,3.9,21,3.8l0.7-1.3 c0.1-0.1,0.2-0.1,0.3-0.1l1.2,0.3c0.5-0.4,1-0.7,1.6-0.9l0.3-1.2c0-0.1,0.1-0.2,0.2-0.2h1.5c0.1,0,0.2,0.1,0.2,0.2l0.3,1.1 c0.6,0.2,1.2,0.5,1.6,0.9l1.2-0.3c0.1,0,0.2,0,0.3,0.1l0.7,1.3c0.1,0.1,0,0.2,0,0.3L30.4,5c0.1,0.3,0.1,0.6,0.1,0.9 c0,0.3,0,0.6-0.1,0.9l0.9,0.9c0.1,0.1,0.1,0.2,0,0.3l-0.7,1.3c-0.1,0.1-0.2,0.1-0.3,0.1L29,9.1c-0.5,0.4-1,0.7-1.6,0.9l-0.3,1.2 C27.1,11.3,27,11.4,26.9,11.4z M25.6,10.9h1.1L27,9.7c0-0.1,0.1-0.1,0.2-0.2c0.6-0.2,1.1-0.5,1.6-0.9c0.1-0.1,0.1-0.1,0.2-0.1 l1.2,0.3l0.6-1L29.9,7c-0.1-0.1-0.1-0.2-0.1-0.2C29.9,6.5,30,6.2,30,5.9c0-0.3,0-0.6-0.1-0.9c0-0.1,0-0.2,0.1-0.2l0.8-0.8l-0.6-1 l-1.1,0.3c-0.1,0-0.2,0-0.2-0.1c-0.5-0.4-1-0.8-1.6-0.9C27.1,2.2,27,2.1,27,2l-0.3-1.1h-1.1L25.3,2c0,0.1-0.1,0.1-0.2,0.2 c-0.6,0.2-1.2,0.5-1.6,0.9c-0.1,0.1-0.2,0.1-0.2,0.1l-1.1-0.3l-0.6,1l0.8,0.8c0.1,0.1,0.1,0.2,0.1,0.2c-0.1,0.3-0.1,0.6-0.1,0.9 c0,0.3,0,0.6,0.1,0.9c0,0.1,0,0.2-0.1,0.2l-0.8,0.8l0.6,1l1.1-0.3c0.1,0,0.2,0,0.2,0.1c0.4,0.4,1,0.7,1.6,0.9 c0.1,0,0.1,0.1,0.2,0.2L25.6,10.9z M25,2L25,2L25,2z M27.2,7.9h-2c-0.1,0-0.2,0-0.2-0.1l-1-1.8c0-0.1,0-0.2,0-0.2l1-1.7 c0-0.1,0.1-0.1,0.2-0.1h2c0.1,0,0.2,0,0.2,0.1l1,1.7c0,0.1,0,0.2,0,0.2l-1,1.8C27.3,7.9,27.3,7.9,27.2,7.9z M25.3,7.4H27l0.9-1.5 L27,4.4h-1.7l-0.9,1.5L25.3,7.4z"/></g></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-08 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="34" viewBox="0 0 28 34" width="28" xmlns="http://www.w3.org/2000/svg"><g><path d="M15.1,12.2"/></g><g><polygon points="18.4,20.3 18.4,21.7 15.4,21.7 14.9,22.4 14.9,23.4 18.4,23.4 18.4,24.8 14.9,24.8 14.9,27.3 13.3,27.3 13.3,24.8 9.8,24.8 9.8,23.4 13.3,23.4 13.3,22.4 12.8,21.7 9.8,21.7 9.8,20.3 11.9,20.3 9.5,16.5 11.2,16.5 14.1,21.1 17.1,16.5 18.8,16.5 16.4,20.3 	"/><path d="M23.6,13.8c-1.9-2.4-4.2-3.9-6.6-4.6c0.1-0.2,0.3-0.4,0.3-0.7c0-0.2-0.1-0.5-0.2-0.6l3.3-5.7l-0.7-0.1 c-0.8-0.2-1.6-0.2-2.4-0.2c-1.1,0-2.1,0-2.9-0.4c-1.4-0.6-3-0.2-4.5,0.2C9.4,1.7,9,1.8,8.6,1.9L7.9,2.1l3.5,6.1 c0,0.1-0.1,0.2-0.1,0.3c0,0.2,0.1,0.4,0.2,0.6C9,9.7,6.6,11.3,4.6,13.8c-2.5,3.1-4,7.1-4,10.8c0,6.2,4,8.8,13.5,8.8 c9.5,0,13.5-2.6,13.5-8.8C27.6,20.9,26.1,16.9,23.6,13.8z M10.1,2.5c1.3-0.4,2.7-0.8,3.8-0.3c1.1,0.5,2.2,0.5,3.3,0.5 c0.5,0,1,0,1.5,0l-2.5,4.4c-1.4-0.2-2.8-0.2-4.2,0L9.4,2.7C9.7,2.7,9.9,2.6,10.1,2.5z M14.1,32.4c-9,0-12.5-2.2-12.5-7.8 c0-3.4,1.4-7.2,3.8-10.2c2.5-3,5.6-4.7,8.7-4.7s6.3,1.7,8.7,4.7c2.4,2.9,3.8,6.7,3.8,10.2C26.6,30.2,23.1,32.4,14.1,32.4z"/></g></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-09 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="34" viewBox="0 0 42 34" width="42" xmlns="http://www.w3.org/2000/svg"><g><path d="M19.1,12.2"/></g><g><path d="M10.1,0.5c-1.7,0-3,1.4-3,3v17.3c0,1.7,1.4,3,3,3h19.2l4.4,4.4c0.2,0.2,0.4,0.3,0.7,0.3c0.5,0,1-0.4,1-1v-3.7 H38c1.7,0,3-1.4,3-3V3.5c0-1.7-1.4-3-3-3L10.1,0.5z M14.4,15.4c-1.5,0-2.8-1.3-2.8-2.8s1.3-2.8,2.8-2.8s2.8,1.3,2.8,2.8 C17.2,14.2,16,15.4,14.4,15.4z M24.2,15.4c-1.5,0-2.8-1.3-2.8-2.8s1.3-2.8,2.8-2.8c1.5,0,2.8,1.3,2.8,2.8 C27,14.2,25.7,15.4,24.2,15.4z M33.9,15.4c-1.5,0-2.8-1.3-2.8-2.8s1.3-2.8,2.8-2.8c1.5,0,2.8,1.3,2.8,2.8 C36.7,14.2,35.5,15.4,33.9,15.4z"/><path d="M2.3,30.4h1.7v2.5c0,0.3,0.3,0.6,0.6,0.6c0.2,0,0.3-0.1,0.4-0.2L8,30.4h12.6c1.1,0,2-0.9,2-2v-2.8H10.1 c-2.6,0-4.7-2.1-4.7-4.7V15H2.3c-1.1,0-2,0.9-2,2v11.4C0.3,29.5,1.2,30.4,2.3,30.4z"/></g></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-10 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="35" viewBox="0 0 32 35" width="32" xmlns="http://www.w3.org/2000/svg"><g><path class="st0" d="M27.3,3.8h-0.2v1.8c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2V3.8h-4.9v1.8c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2V3.8H9.3 v1.8c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2V3.8H5.1c-2.4,0-4.4,2-4.4,4.4v3.3h30.9V8.1C31.7,5.7,29.7,3.8,27.3,3.8z"/><path class="st0" d="M7.3,6.7c0.6,0,1.1-0.5,1.1-1.1V2c0-0.6-0.5-1.1-1.1-1.1S6.2,1.4,6.2,2v3.6C6.2,6.2,6.7,6.7,7.3,6.7z"/><path class="st0" d="M16.2,6.7c0.6,0,1.1-0.5,1.1-1.1V2c0-0.6-0.5-1.1-1.1-1.1c-0.6,0-1.1,0.5-1.1,1.1v3.6 C15.1,6.2,15.6,6.7,16.2,6.7z"/><path class="st0" d="M25.1,6.7c0.6,0,1.1-0.5,1.1-1.1V2c0-0.6-0.5-1.1-1.1-1.1S24,1.4,24,2v3.6C24,6.2,24.5,6.7,25.1,6.7z"/><path class="st0" d="M0.7,13v16.7c0,2.4,2,4.4,4.4,4.4h22.2c2.4,0,4.4-2,4.4-4.4V13H0.7z M26.5,19.2h-21v-3.3h21V19.2z"/></g></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-11 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="35" viewBox="0 0 39 35" width="39" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="3.5" class="st0" width="8" height="7"/><rect x="10.5" y="3.5" class="st0" width="8" height="7"/><rect x="20.5" y="3.5" class="st0" width="8" height="7"/><rect x="30.5" y="3.5" class="st0" width="8" height="7"/><rect x="0.5" y="13.5" class="st0" width="8" height="7"/><rect x="10.5" y="13.5" class="st0" width="8" height="7"/><rect x="20.5" y="13.5" class="st0" width="8" height="7"/><rect x="30.5" y="13.5" class="st0" width="8" height="7"/><rect x="0.5" y="23.5" class="st0" width="8" height="7"/><rect x="10.5" y="23.5" class="st0" width="8" height="7"/><rect x="20.5" y="23.5" class="st0" width="8" height="7"/><rect x="30.5" y="23.5" class="st0" width="8" height="7"/></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+.admin-btn-12 {
+  background-image: url('data:image/svg+xml,<svg fill="rgb(255, 255, 255)" height="35" viewBox="0 0 39 35" width="39" xmlns="http://www.w3.org/2000/svg"><g><path class="st0" d="M34.5,34.5H4.4V13.4l15-12.9l15,12.9V34.5z M9.1,29.8h20.6V15.6L19.4,6.8L9.1,15.6V29.8z"/></g></svg>');
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: #1591a2;
+	@include mq(sp) {
+		background-position: center;
+		background-size: 70%;
+	}
+}
+
+// main title area
+.main-title-area {
+	padding: 10px 20px;
+	background-color: #fcf8d1;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	user-select: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  min-height: 60px;
+	.title {
+		font-size: 30px;
+		font-weight: 400;
+		color: #1c8b9a;
+    line-height: 1;
+		span {
+			font-size: 16px;
+		}
+	}
+}
+
+// button
+.btn-area {
+  .btn-text {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+}
+.btn {
+  padding: 4px 12px;
+  margin: 0 2px;
+  font-size: 12px;
+  color: white;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.21);
+  border-bottom-color: rgba(0,0,0,0.34);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 0 2px 0 -1px rgba(0,0,0,0.13), 0 3px 0 -1px rgba(0,0,0,0.08), 0 3px 13px -1px rgba(0,0,0,0.21);
+  cursor: pointer;
+  &:active, &:hover {
+    top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    box-shadow: 0 0 #87a86f;
+    position: relative;
+  }
+}
+.green {
+  background-color: #9abf7f;
+}
+.red {
+  background-color: #ff8888;
+}
+.blue {
+  background-color: #88b8ff;
+}
+.gray {
+  background-color: #ababab;
+}
+.disabled {
+  top: 1px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+  position: relative;
+  background-color: #ccc;
+  pointer-events: none;
+}
+.up-file {
+  position: relative;
+  input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+  }
+}
+
+// date area
+.date-area {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  .inner {
+    display: flex;
+    align-items: center;
+    .date, .month {
+      font-family: "Times New Roman", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "メイリオ", Meiryo, serif;
+      font-size: 26px;
+      border: none;
+      color: #3e3a39;
+      width: 240px;
+      &:focus {
+        outline: none !important;
+      }
+    }
+		.month {
+			width: 160px;
+		}
+    #date-area-wareki {
+      font-size: 12px;
+      margin-right: .5em;
+    }
+    .active {
+      outline: none !important;
+      background-color: inherit;
+    }
+    .today-mark, .this-month-mark {
+      font-size: 9px;
+      font-weight: bold;
+      padding: .5em 1em;
+      background-color: #ccc;
+      border-radius: 3px;
+      color: #fff;
+			min-width: 60px;
+			text-align: center;
+      cursor: pointer;
+      &:hover {
+        background-color: #f07a7a;
+      }
+    }
+    .today, .this-month {
+      background-color: #f07a7a;
+      pointer-events: none;
+      cursor: default;
+    }
+    .bloc {
+      width: 110px;
+      text-align: center;
+      .date-btn {
+        font-size: 16px;
+        color: #1591a2;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+          color: #1dbdd2;
+        }
+        position: relative;
+      }
+      .less-btn {
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          top: -2px;
+          left: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpiZCASiE5cNB9IJQDxByB2fJ0fdwEkzkiiZhgAGWIINOQBExmaQUAAJsZEhmYYOIDXAAKaE4HOP4AzDIjQvADGYaREM4YBpGpGMYAczfBABGpOIEczwWgkBoANgNqAy5b5UBdiBdQLRKpEI1USEqmGMFKQmUBlwgG80QhUkIgndhyISgc4DPkAEyMqIaEZAivSHoA4AAEGAPsAW8AEIqbZAAAAAElFTkSuQmCC') no-repeat;
+          background-size: auto;
+        }
+        &:hover:before {
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpiZCASyO69NB9IJQDxByB2fOysdwEkzkiiZhgAGWIINOQBExmaQUAAJsZEhmYYOIDXAAKaE4HOP4AzDIjQvADGYaREM4YBpGpGMYAczfBABGpOIEczwWgkBoANgNqAy5b5UBdiBdQLRKpEI1USEqmGMFKQmUBlwgG80QhUkIgndhyISgc4DPkAEyMqIaEZAivSHoA4AAEGAHScWvjybEQxAAAAAElFTkSuQmCC') no-repeat;
+          background-size: auto;
+        }
+      }
+      .less-btn.disable {
+        color: #ccc;
+        pointer-events: none;
+        cursor: default;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpiZCASnDlzZj6QSgDiD0DsaGJicgEkzkiiZhgAGWIINOQBExmaQUAAJsZEhmYYOIDXAAKaE4HOP4AzDIjQvADGYaREM4YBpGpGMYAczfBABGpOIEczwWgkBoANgNqAy5b5UBdiBdQLRKpEI1USEqmGMFKQmUBlwgG80QhUkIgndhyISgc4DPkAEyMqIaEZAivSHoA4AAEGANdsWYjkgfLWAAAAAElFTkSuQmCC') no-repeat;
+          background-size: auto;
+        }
+      }
+      .add-btn {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZIAC0YmLDIDUfiAWAOIFr/PjEhmIAIxQzQpA6jxUMwwQZQgTlE5A0wwWAxo8n1gDDuCQJ2gI2ACgU0EGJJJjCCMyB6gQ5BVcirGGCSO6AKmGMGJTRYohjLj8RqwhTLgMACpYQCBgE/AaQCxgosALC2gTiBRFI0UJiRzNyNnZAVoWkKQZORYcyNGMbAAoSj6Qqhk5Oz8AUo5IhhBdpAEEGABl1lnAIZMLhQAAAABJRU5ErkJggg==') no-repeat;
+          background-size: auto;
+        }
+        &:hover:after {
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZIAC2b2XDIDUfiAWAOIFj531EhmIAIxQzQpA6jxUMwwQZQgTlE5A0wwWAxo8n1gDDuCQJ2gI2ACgU0EGJJJjCCMyB6gQ5BVcirGGCSO6AKmGMGJTRYohjLj8RqwhTLgMACpYQCBgE/AaQCxgosALC2gTiBRFI0UJiRzNyNnZAVoWkKQZORYcyNGMbAAoSj6Qqhk5Oz8AUo5IhhBdpAEEGACtY1j4a8hv0AAAAABJRU5ErkJggg==') no-repeat;
+          background-size: auto;
+        }
+      }
+      .add-btn.disable {
+        color: #ccc;
+        pointer-events: none;
+        cursor: default;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZICCM2fOGACp/UAsAMQLTExMEhmIAIxQzQpA6jxUMwwQZQgTlE5A0wwWAxo8n1gDDuCQJ2gI2ACgU0EGJJJjCCMyB6gQ5BVcirGGCSO6AKmGMGJTRYohjLj8RqwhTLgMACpYQCBgE/AaQCxgosALC2gTiBRFI0UJiRzNyNnZAVoWkKQZORYcyNGMbAAoSj6Qqhk5Oz8AUo5IhhBdpAEEGAC0M1eIjR24cAAAAABJRU5ErkJggg==') no-repeat;
+          background-size: auto;
+        }
+      }
+      .disable {
+        color: #ccc;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+    
+    
+    
+
+    .report-area {
+      font-size: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5px 0;
+      margin-left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      p {
+        padding: .2em .5em;
+        span {
+          font-weight: bold;
+          color: #1591a2;
+        }
+        .text-red {
+          color: #ff4560;
+        }
+      }
+    }
+  }
+}
+
+// tooltips
+.tips {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #4f4f4f;
+  font-size: 14px;
+  &:hover {
+    color: #1591a2;
+  }
+}

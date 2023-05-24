@@ -1,0 +1,39 @@
+# I recommend you remove `IfModule`. Because if you need mod_rewrite,
+# you don't need `IfModule`. If you don't need it, you don't need this file
+# at all.
+
+<IfModule mod_rewrite.c>
+DirectoryIndex index.php
+RewriteEngine on
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteCond $1 !^(index\.php|images|css|js|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ./index.php?/$1 [L,QSA]
+</IfModule>
+
+## Basic認証 パスに注意
+#AuthType Basic
+#AuthName "dakoku-keeper your ID and password"
+#AuthUserFile /home/eweb/dk-keeper.com/public_html/esna/.htpasswd
+#Require valid-user
+
+## IP制限
+#order deny,allow
+#deny from all
+# 仙台5F
+#allow from 122.249.156.144
+# 東京
+#allow from 118.243.234.198
+
+# x-server 1
+#allow from 183.90.228.15
+# x-server 2
+#allow from 183.181.99.3
+
+# sakura server
+#allow from 153.126.155.180
+
+## Allow か Require のどちらかを満たせばOK
+#Satisfy Any

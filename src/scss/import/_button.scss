@@ -1,0 +1,89 @@
+// button
+// 基本ボタン
+
+.btn-area {
+    .btn-text {
+        font-size: 12px;
+        color: #aaa;
+        margin-bottom: 4px;
+    }
+}
+.btn {
+    padding: 4px 12px;
+    margin: 0 2px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: white;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 0 2px 0 -1px rgba(0,0,0,0.13), 0 3px 0 -1px rgba(0,0,0,0.08), 0 3px 13px -1px rgba(0,0,0,0.21);
+    cursor: pointer;
+    background-color: #9abf7f;
+    &:active, &:hover {
+        top: 1px;
+        border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+        box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+        box-shadow: 0 0 #87a86f;
+        position: relative;
+    }
+}
+.btn.green {
+    background-color: #9abf7f;
+}
+.btn.red {
+    background-color: #ff8888;
+}
+.btn.blue {
+    background-color: #88b8ff;
+}
+.btn.gray {
+    background-color: #ababab;
+}
+.btn.disabled {
+    top: 1px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+    background-color: #ccc;
+    pointer-events: none;
+}
+.btn.up-file {
+    position: relative;
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        opacity: 0;
+    }
+}
+
+// btn2 
+.btn2 {
+    font-size: 12px;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    padding: 0.8em 2em;
+    background-color: #1591a2;
+    border-radius: 9999px;
+    display: inline-block;
+    border: 1px solid #fff;
+    cursor: pointer;
+    &:hover {
+        background-color: #1dbdd2;
+    }
+    &.active {
+        background-color: #1dbdd2;
+    }
+    &.disabled {
+        background-color: #ccc;
+        pointer-events: none;
+    }
+}

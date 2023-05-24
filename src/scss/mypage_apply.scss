@@ -1,0 +1,130 @@
+
+// mypage apply
+
+@charset "UTF-8";
+
+@import "import/common_mypage";
+@import "import/timepicki";
+
+.selected {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.sub-text {
+	font-weight: 300;
+	margin-left: 1em;
+	font-size: 14px;
+	color: #aaa;
+}
+
+.calender {
+	text-align: center;
+
+	.datepicker-container {
+		display: inline-block;
+	}
+}
+
+.cale-on {
+	text-align: left;
+	font-size: 18px;
+	color: #1b97a8;
+	position: relative;
+}
+
+.date-clear {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.now-in-time,
+.now-out-time {
+	color: #1b97a8;
+	font-size: 1.0625rem;
+}
+
+.del-in-time,
+.del-out-time {
+	color: #f52323;
+}
+
+.area-none {
+	display: none;
+}
+
+#step02_return {
+	font-size: 14px;
+	display: inline-block;
+	cursor: pointer;
+
+	&:hover {
+		color: #1b97a8;
+	}
+}
+
+.btn.disabled {
+	background: #ccc !important;
+	user-select: none !important;
+	box-shadow: none !important;
+	cursor: auto !important;
+
+	&::focus {
+		box-shadow: none !important;
+	}
+
+	&::hover {
+		box-shadow: none !important;
+	}
+}
+
+.notice-submit-area {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	.mail-err {
+		display: none;
+		font-size: 14px;
+		color: #f00;
+		margin-right: 1em;
+	}
+}
+
+//
+.flatpickr-calendar {
+	display: inline-block !important;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+.active {
+	font-weight: bold;
+	color: #1b97a8;
+}
+
+// badge 
+.badge {
+	margin-left: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	display: none;
+}
+.nav-item {
+	position: relative;
+}
+.badge-text1 {
+	position: absolute;
+	top: -3px;
+	left: 115px;
+	font-size: 9px;
+	color: #0c5460;
+	display: none;
+}
+.badge-text2 {
+	position: absolute;
+	top: -3px;
+	left: 160px;
+	font-size: 9px;
+	color: #b71c1c;
+	display: none;
+}

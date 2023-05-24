@@ -1,0 +1,181 @@
+
+// admin list_month
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+// @import "import/_table_custom";
+@import "../../node_modules/tabulator-tables/src/scss/themes/tabulator_simple.scss";
+@import "import/tabulator_over";
+// @import "import/loading_table";
+// @import "import/loading";
+
+.date-area {
+    position: relative;
+    .term-area {
+        position: absolute;
+        bottom: 5px;
+        left: 25px;
+        font-size: 11px;
+        color: #4b4b4b;
+    }
+    .table-top-mark {
+        position: absolute;
+        bottom: 2px;
+        left: 330px;
+        font-size: 9px;
+        font-weight: 700;
+        padding: .5em 1em;
+        border-radius: 3px;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+        background-color: #8a8a8a;
+        &:hover {
+            opacity: .6;
+        }
+    }
+    .on {
+        background-color: #53a0a0;
+    }
+    .detail-area {
+        position: absolute;
+        bottom: 2px;
+        left: 410px;
+        display: flex;
+        .view-change-btn {
+            font-size: 9px;
+            font-weight: 700;
+            padding: .5em 1em;
+            border-radius: 3px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            background-color: #8a8a8a;
+            margin-right: 5px;
+            &.on {
+                background-color: #53a0a0;
+            }
+        }
+    }
+}
+
+// month days list
+.sun, .mon, .tue, .wed, .thu, .fri, .sat, .holiday, .today {
+    .tabulator-col-content {
+        .tabulator-col-title {
+            text-align: center !important;
+            padding: 0 !important;
+        }
+    }
+}
+.week .tabulator-col-title {
+        margin-top: 5px;
+}
+.tabulator-headers > .sun {
+    position: relative;
+    color: #F44336;
+    &:after {
+        content: "日";
+        position: absolute;
+        width: 100%;
+        bottom: 8px;
+        text-align: center;
+    }
+}
+.tabulator-headers > .mon {
+    position: relative;
+    &:after {
+        content: "月";
+        position: absolute;
+        width: 100%;
+        bottom: 8px;
+        text-align: center;
+    }
+}
+.tabulator-headers > .tue {
+    position: relative;
+    &:after {
+        content: "火";
+        position: absolute;
+        width: 100%;
+        bottom: 8px;
+        text-align: center;
+    }
+}
+.tabulator-headers > .wed {
+    position: relative;
+    &:after {
+        content: "水";
+        position: absolute;
+        width: 100%;
+        bottom: 8px;
+        text-align: center;
+    }
+}
+.tabulator-headers > .thu {
+    position: relative;
+    &:after {
+        content: "木";
+        position: absolute;
+        width: 100%;
+        bottom: 8px;
+        text-align: center;
+    }
+}
+.tabulator-headers > .fri {
+    position: relative;
+    &:after {
+        content: "金";
+        position: absolute;
+        width: 100%;
+        bottom: 8px;
+        text-align: center;
+    }
+}
+.tabulator-headers > .sat {
+    position: relative;
+    color: #0D47A1;
+    &:after {
+        content: "土";
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+}
+.tabulator-headers > .holiday {
+    position: relative;
+    color: #F44336;
+    &:after {
+        content: "祝";
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+}
+.tabulator-headers > .today {
+    position: relative;
+    background-color: #1dbdd2 !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    &:after {
+        content: "本日";
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+}
+.tabulator .tabulator-header .tabulator-col .tabulator-header-filter input[type="search"] {
+    background-color: #fff;
+}
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable .tabulator-col-title {
+    padding: 0 !important;
+}
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort=none] .tabulator-col-content .tabulator-arrow {
+    display: none !important;
+}

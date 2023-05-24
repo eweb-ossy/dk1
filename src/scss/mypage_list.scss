@@ -1,0 +1,301 @@
+
+// Mypage state list 従業員 勤務状況（集計）個人一覧
+@charset "UTF-8";
+// @import "import/common_mypage";
+@import "import/common_mypage_back";
+@import "import/_table_custom";
+@import "import/_modal_custom";
+
+.content {
+  padding: 0 !important;
+}
+
+// date area
+.date-area {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background-color: #e2f3ff;
+  .inner {
+    display: flex;
+    align-items: center;
+    .date, .month {
+      font-family: "Times New Roman", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "メイリオ", Meiryo, serif;
+      font-size: 26px;
+      border: none;
+      color: #3e3a39;
+      width: 240px;
+      background-color: #e2f3ff;
+      &:focus {
+        outline: none !important;
+      }
+    }
+		.month {
+			width: 140px;
+		}
+    .active {
+      outline: none !important;
+      background-color: inherit;
+    }
+    .today-mark, .this-month-mark {
+      font-size: 9px;
+      line-height: 1;
+      font-weight: bold;
+      padding: .5em 1em;
+      background-color: #ccc;
+      border-radius: 3px;
+      color: #fff;
+			min-width: 60px;
+			text-align: center;
+      cursor: pointer;
+      &:hover {
+        background-color: #f07a7a;
+      }
+    }
+    .today, .this-month {
+      background-color: #f07a7a;
+      pointer-events: none;
+      cursor: default;
+    }
+    .bloc {
+      width: 110px;
+      text-align: center;
+      line-height: 1;
+      .date-btn {
+        font-size: 16px;
+        color: #1591a2;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+          color: #1dbdd2;
+        }
+        position: relative;
+      }
+      .less-btn {
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          top: -2px;
+          left: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpiZCASiE5cNB9IJQDxByB2fJ0fdwEkzkiiZhgAGWIINOQBExmaQUAAJsZEhmYYOIDXAAKaE4HOP4AzDIjQvADGYaREM4YBpGpGMYAczfBABGpOIEczwWgkBoANgNqAy5b5UBdiBdQLRKpEI1USEqmGMFKQmUBlwgG80QhUkIgndhyISgc4DPkAEyMqIaEZAivSHoA4AAEGAPsAW8AEIqbZAAAAAElFTkSuQmCC') no-repeat;
+          background-size: auto;
+        }
+        &:hover:before {
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpiZCASyO69NB9IJQDxByB2fOysdwEkzkiiZhgAGWIINOQBExmaQUAAJsZEhmYYOIDXAAKaE4HOP4AzDIjQvADGYaREM4YBpGpGMYAczfBABGpOIEczwWgkBoANgNqAy5b5UBdiBdQLRKpEI1USEqmGMFKQmUBlwgG80QhUkIgndhyISgc4DPkAEyMqIaEZAivSHoA4AAEGAHScWvjybEQxAAAAAElFTkSuQmCC') no-repeat;
+          background-size: auto;
+        }
+      }
+      .less-btn.disable {
+        color: #ccc;
+        pointer-events: none;
+        cursor: default;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJ5JREFUeNpiZCASnDlzZj6QSgDiD0DsaGJicgEkzkiiZhgAGWIINOQBExmaQUAAJsZEhmYYOIDXAAKaE4HOP4AzDIjQvADGYaREM4YBpGpGMYAczfBABGpOIEczwWgkBoANgNqAy5b5UBdiBdQLRKpEI1USEqmGMFKQmUBlwgG80QhUkIgndhyISgc4DPkAEyMqIaEZAivSHoA4AAEGANdsWYjkgfLWAAAAAElFTkSuQmCC') no-repeat;
+          background-size: auto;
+        }
+      }
+      .add-btn {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZIAC0YmLDIDUfiAWAOIFr/PjEhmIAIxQzQpA6jxUMwwQZQgTlE5A0wwWAxo8n1gDDuCQJ2gI2ACgU0EGJJJjCCMyB6gQ5BVcirGGCSO6AKmGMGJTRYohjLj8RqwhTLgMACpYQCBgE/AaQCxgosALC2gTiBRFI0UJiRzNyNnZAVoWkKQZORYcyNGMbAAoSj6Qqhk5Oz8AUo5IhhBdpAEEGABl1lnAIZMLhQAAAABJRU5ErkJggg==') no-repeat;
+          background-size: auto;
+        }
+        &:hover:after {
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZIAC2b2XDIDUfiAWAOIFj531EhmIAIxQzQpA6jxUMwwQZQgTlE5A0wwWAxo8n1gDDuCQJ2gI2ACgU0EGJJJjCCMyB6gQ5BVcirGGCSO6AKmGMGJTRYohjLj8RqwhTLgMACpYQCBgE/AaQCxgosALC2gTiBRFI0UJiRzNyNnZAVoWkKQZORYcyNGMbAAoSj6Qqhk5Oz8AUo5IhhBdpAEEGACtY1j4a8hv0AAAAABJRU5ErkJggg==') no-repeat;
+          background-size: auto;
+        }
+      }
+      .add-btn.disable {
+        color: #ccc;
+        pointer-events: none;
+        cursor: default;
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 16px;
+          width: 16px;
+          height: 20px;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZICCM2fOGACp/UAsAMQLTExMEhmIAIxQzQpA6jxUMwwQZQgTlE5A0wwWAxo8n1gDDuCQJ2gI2ACgU0EGJJJjCCMyB6gQ5BVcirGGCSO6AKmGMGJTRYohjLj8RqwhTLgMACpYQCBgE/AaQCxgosALC2gTiBRFI0UJiRzNyNnZAVoWkKQZORYcyNGMbAAoSj6Qqhk5Oz8AUo5IhhBdpAEEGAC0M1eIjR24cAAAAABJRU5ErkJggg==') no-repeat;
+          background-size: auto;
+        }
+      }
+      .disable {
+        color: #ccc;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+    .report-area {
+      font-size: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5px 0;
+      margin-left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      p {
+        padding: .2em .5em;
+        span {
+          font-weight: bold;
+          color: #1591a2;
+        }
+        .text-red {
+          color: #ff4560;
+        }
+      }
+    }
+  }
+}
+
+.table-area {
+  line-height: 1 !important;
+  border-left: 1px solid #ccc;
+}
+
+.date-area {
+  position: relative;
+  .term-area {
+    position: absolute;
+    bottom: 2px;
+    left: 25px;
+    font-size: 11px;
+    color: #4b4b4b;
+  }
+  .table-top-mark {
+    position: absolute;
+    bottom: 8px;
+    left: 330px;
+    font-size: 9px;
+    font-weight: 700;
+    padding: .5em;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    background-color: #8a8a8a;
+    &:hover {
+      opacity: .6;
+    }
+  }
+  .on {
+    background-color: #53a0a0;
+  }
+}
+
+//
+.user-area {
+  padding: 0;
+  margin-left: 30px;
+  line-height: 1;
+  .user-kana {
+    margin-bottom: 5px;
+    font-size: 10px;
+  }
+  .user-data {
+    font-size: 11px;
+    span {
+      margin-right: 10px;
+    }
+    .user-name {
+      font-size: 18px;
+    }
+  }
+}
+
+// badge 
+.badge {
+	margin-left: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	display: none;
+}
+.nav-item {
+	position: relative;
+}
+.badge-text1 {
+	position: absolute;
+	top: -3px;
+	left: 115px;
+	font-size: 9px;
+	color: #0c5460;
+  display: none;
+}
+.badge-text2 {
+	position: absolute;
+	top: -3px;
+	left: 160px;
+	font-size: 9px;
+	color: #b71c1c;
+  display: none;
+}
+
+// button
+.btn-area {
+  margin-left: 20px;
+  .btn-text {
+    font-size: 12px;
+    color: #aaa;
+    // margin-bottom: 4px;
+  }
+}
+.btn {
+  padding: 0 12px;
+  margin: 0 2px;
+  font-size: 12px;
+  color: white;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.21);
+  border-bottom-color: rgba(0,0,0,0.34);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 0 2px 0 -1px rgba(0,0,0,0.13), 0 3px 0 -1px rgba(0,0,0,0.08), 0 3px 13px -1px rgba(0,0,0,0.21);
+  cursor: pointer;
+  &:active, &:hover {
+    top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    box-shadow: 0 0 #87a86f;
+    position: relative;
+  }
+}
+.green {
+  background-color: #9abf7f;
+}
+.red {
+  background-color: #ff8888;
+}
+.blue {
+  background-color: #88b8ff;
+}
+.gray {
+  background-color: #ababab;
+}
+.disabled {
+  top: 1px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+  position: relative;
+  background-color: #ccc;
+  pointer-events: none;
+}
+.row {
+  margin: 0;
+}

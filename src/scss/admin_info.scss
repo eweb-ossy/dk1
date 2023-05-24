@@ -1,0 +1,66 @@
+// admin info
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+@import "import/forms";
+@import "../../node_modules/tabulator-tables/dist/css/tabulator_semanticui.css";
+@import "../../node_modules/flatpickr/dist/flatpickr.min.css";
+
+// main box 
+.main-box {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    .main-box-header {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        background-color: #e3e3e3;
+        display: flex;
+        justify-content: space-between;
+        .title-area {
+            display: flex;
+            align-items: center;
+            .title {
+                font-size: 16px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .main-box-body {
+        padding: 0;
+        .list {
+            width: 100%;
+            .tabulator {
+                margin: 0;
+                border: none;
+                font-size: 12px;
+            }
+        }
+    }
+    .main-box-footer {
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+}
+
+// picker 
+.flatpickr-input {
+    width: 170px;
+    background-color: initial;
+    font-size: 20px;
+    padding: 0;
+    color: #3e3a39;
+    border: none;
+    &:focus-visible {
+        outline: none;
+    }
+}
+.input-button {
+    display: inline-block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}

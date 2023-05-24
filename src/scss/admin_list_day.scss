@@ -1,0 +1,138 @@
+
+// admin list_day
+
+@charset "UTF-8";
+
+@import "import/reset";
+@import "import/common";
+@import "import/common_admin";
+@import "import/_table_custom";
+@import "import/_modal_custom";
+
+
+// main area
+.main {
+  // display: flex;
+  // justify-content: flex-end;
+  position: relative;
+  .graph-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    width: 350px;
+    height: 100%;
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+    .graph-bar {
+      width: 100%;
+      height: 25px;
+      background-color: #f2f2f2;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 5px;
+      padding-left: 10px;
+      .bar-btn {
+        width: 18px;
+        color: #1591a2;
+        cursor: pointer;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+    .graph-text-area {
+      padding: 10px;
+      p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+
+// chart table
+.chart-table {
+  width: 100%;
+  font-size: 10px;
+  margin-bottom: 10px;
+  thead {
+    tr {
+      th {
+        background-color: #e6e6e6;
+        border: 1px solid #ccc;
+        padding: .3em .5em;
+      }
+    }
+  }
+  tbody {
+    background-color: #fff;
+    tr {
+      text-align: right;
+      td {
+        border: 1px solid #ccc;
+        padding: .3em .5em;
+      }
+      .t {
+        text-align: left;
+      }
+    }
+  }
+}
+// chart
+// .chart-area {
+//   min-height: inherit !important;
+// }
+.apexcharts-canvas {
+  height: 130px !important;
+}
+.apexcharts-legend-text {
+  font-size: 9px !important;
+}
+.apexcharts-legend {
+  top: 0 !important;
+}
+
+.date-area {
+  position: relative;
+  .table-top-mark {
+    position: absolute;
+    bottom: 2px;
+    left: 20px;
+    font-size: 9px;
+    font-weight: 700;
+    padding: .5em 1em;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    background-color: #8a8a8a;
+    &:hover {
+      opacity: .6;
+    }
+  }
+  .on {
+    background-color: #53a0a0;
+  }
+}
+
+// flatpickr 
+.wareki-year {
+  font-size: 12px;
+}
+.sun, .week-0 {
+  color: #f00 !important;
+}
+.sat, .week-6 {
+  color: #00f !important;
+}
+.week-0.prevMonthDay, .week-0.nextMonthDay {
+  color: rgba(#f00, 0.3) !important;
+}
+.week-6.prevMonthDay, .week-6.nextMonthDay {
+  color: rgba(#00f, 0.3) !important;
+}
+.flatpickr-day.selected {
+  color: #fff !important;
+}

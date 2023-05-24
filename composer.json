@@ -1,0 +1,16 @@
+{
+    "name": "e-web/dakoku",
+    "autoload": {
+        "psr-4": {
+            "EWeb\\Dakoku\\": "src/"
+        }
+    },
+    "require": {
+        "codeigniter/framework": "3.1.*",
+        "phpoffice/phpspreadsheet": "^1.2",
+        "tecnickcom/tcpdf": "^6.3"
+    },
+    "require-dev": {
+		"mikey179/vfsstream": "^1.6"
+	}
+}

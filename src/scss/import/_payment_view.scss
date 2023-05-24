@@ -1,0 +1,51 @@
+// pay-detail-view
+.pay-detail-view {
+    width: 100%;
+    padding: 20px 0;
+    .inner {
+        background-color: #fff;
+        padding: 20px;
+        table {
+            border-collapse: collapse;
+            width: 100%;    
+            tr {
+                height: 30px;
+                td {
+                    border: 1px solid #295890;
+                    padding: .1em;
+                    font-size: 16px;
+                    font-weight: bold;
+                    width: 180px;
+                    text-align: right;
+                }
+                .pay-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-align: left;
+                    border: none;
+                }
+                .head1 {
+                    width: 20px;
+                    text-align: center;
+                    background-color: #295890;
+                    color: #fff;
+                    writing-mode: vertical-rl;
+                }
+                .head2 {
+                    background-color: #bad0eb;
+                    text-align: left;
+                }
+                .comment {
+                    text-align: left;
+                    line-height: 1.2;
+                    padding: .1em .2em;
+                }
+            }
+            .margin {
+                height: 10px;
+                width: 100%;
+                border: none;
+            }
+        }
+    }
+}
