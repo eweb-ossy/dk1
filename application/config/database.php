@@ -12,9 +12,9 @@ $query_builder = TRUE;
 // 本番環境用データベース
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '183.181.99.201',
-	'username' => 'eweb_ossy',
-	'password' => '7Vr5EvUEgpFa',
+	'hostname' => 'dakoku-db.cgdtnpptj1o2.ap-northeast-1.rds.amazonaws.com',
+	'username' => 'dakoku_db_root',
+	'password' => 'HyN8iK85rJW9',
 	'database' => DATABASE,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

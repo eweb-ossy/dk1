@@ -3,26 +3,26 @@
 // 初期設定
 
 // 環境
-define('ENVIRONMENT', 'development'); // 開発環境
-// define('ENVIRONMENT', 'production'); // 本番環境
+// define('ENVIRONMENT', 'development'); // 開発環境
+define('ENVIRONMENT', 'production'); // 本番環境
 
 // base uri
-define('BASE_URI', 'http://localhost:8000/'); // 開発環境
-// define('BASE_URI', 'https://dk-keeper.com/'); // 本番環境
+// define('BASE_URI', 'http://localhost:8000/'); // 開発環境
+define('BASE_URI', 'https://dakoku.e-web.cloud/'); // 本番環境
 
 // データベース名
-define('DATABASE', 'dk_demo'); // 開発環境
+// define('DATABASE', 'dk_demo'); // 開発環境
 // define('DATABASE', 'dk_demo2'); // 開発環境
 // define('DATABASE', 'dk_local'); // 開発環境
-// define('DATABASE', 'eweb_dk002'); // 本番環境
+define('DATABASE', 'test'); // 本番環境
 
 // サブドメイン
 define('SUB_DOMAIN', ''); // 開発環境
 // define('SUB_DOMAIN', 'tyo-masters'); // 本番環境
 
 // full base uri
-define('FULL_BASE_URI', 'http://localhost:8000/'); // 開発環境
-// define('FULL_BASE_URI', 'https://'.SUB_DOMAIN.'.dk-keeper.com/'); // 本番環境
+// define('FULL_BASE_URI', 'http://localhost:8000/'); // 開発環境
+define('FULL_BASE_URI', 'https://dakoku.e-web.cloud/test/'); // 本番環境
 
 date_default_timezone_set('Asia/Tokyo');
 
